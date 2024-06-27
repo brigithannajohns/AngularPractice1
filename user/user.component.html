@@ -1,0 +1,27 @@
+<div>
+  <h2>Add New User</h2>
+  <form (submit)="postUsers()">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" [(ngModel)]="newUser.first_name">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" [(ngModel)]="newUser.last_name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="newUser.email">
+
+    <label for="avatar">Avatar:</label>
+    <input type="text" id="avatar" name="avatar" [(ngModel)]="newUser.avatar">
+
+    <button type="submit">{{updateClicked?'Update User' : 'Add User'}}</button>
+  </form>
+</div>
+<div>
+  <h2>User List</h2>
+  <ul>
+    <li *ngFor="let user of useri.data">
+      {{ user.first_name }} {{ user.last_name }} - {{ user.email }}
+      <button (click)="updateUser(user.id)">Update</button>
+    </li>
+  </ul>
+</div>
